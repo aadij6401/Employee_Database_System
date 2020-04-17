@@ -1,0 +1,25 @@
+
+<%- include('partials/header')-%>
+<h1>Add Employee Data</h1>
+<form action="/employee/new" method="POST">
+    <div class="form-row">
+        <div class="col-sm-6 boot1 ">
+            <input type="text" name="name" class="form-control" placeholder="Employee Name">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-sm-6 boot1">
+            <input type="text" name="designation" class="form-control"  placeholder="Employee Designation">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-sm-6 boot1">
+            <input type="text" name="salary" class="form-control" placeholder="Employee Salary">
+        </div>
+    </div>
+
+    <input class="btn btn-primary boot12 btn-lg" type="submit" value="Add Employee Data">
+    
+</form>
+
+<%- include('partials/footer')-%>
