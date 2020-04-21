@@ -14,7 +14,7 @@ var employeeRoutes=require('./routes/emp');
 //Middleware
 
 //Connecting Mongoose database
-mongoose.connect('mongodb://localhost:27017/employees', {
+mongoose.connect('mongodb+srv://Admin-atishay:aadi123@cluster0-0rooc.mongodb.net/employees', {
    useNewUrlParser:true,
    useUnifiedTopology:true,
    useCreateIndex:true
@@ -41,7 +41,13 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
+
+
 var port=process.env.PORT;
+
+if (port == null || port == "") {
+  port = 3000;
+}
 
 app.listen(port,()=>{
     console.log('Server started at port');
