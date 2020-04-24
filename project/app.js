@@ -21,14 +21,20 @@ mongoose.connect('mongodb+srv://Admin-atishay:aadi123@cluster0-0rooc.mongodb.net
 });
 
 app.use(methodOverride('_method'));
+
+//Middleware for session..
 app.use(session({
      secret:"nodejs",
      resave:true,
      saveUninitialized:true
 }));
-app.use(bodyParser.urlencoded({extended:true}));
+
 app.use(flash());
 
+//MiddleWare for BodyParser.
+app.use(bodyParser.urlencoded({extended:true}));
+
+//Setting global variables for flash messages.
 app.use((req,res,next)=>{
       res.locals.success_msg=req.flash(('success_msg'));
       res.locals.error_msg = req.flash(('error_msg'));
@@ -36,6 +42,8 @@ app.use((req,res,next)=>{
 });
 
 app.use(employeeRoutes);
+
+//Setting dotenv file
 dotenv.config({path:'./config.env'});
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static('public'));
